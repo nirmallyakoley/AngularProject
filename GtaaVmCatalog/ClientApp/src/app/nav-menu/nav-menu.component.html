@@ -1,0 +1,29 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container"  *ngIf="currentUser">
+      <a class="navbar-brand" [routerLink]="['/']"> Welcome {{currentUser.firstName}} ,VM Catalog Application</a>
+     
+      
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+          </li>
+
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="currentUser.role=='Approver'">
+            <a class="nav-link text-dark" [routerLink]="['/approve-requests']">Approve requests</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">My requests</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a href="#" class="nav-link text-dark"  (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+   
+  </nav>
+</header>

@@ -1,0 +1,131 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.3.0" />
+    <PackageReference Include="HtmlRenderer.PdfSharp" Version="1.5.1-beta1" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0-preview2.19525.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0-preview2.19525.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\app\vm-request\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\app\vm-request\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\vm-request\**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\src\app\vm-request\**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\VMProject.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\alert\AlertType.ts" />
+    <None Remove="ClientApp\src\app\helper\HelperConstant.ts" />
+    <None Remove="ClientApp\src\app\model\AcquiredVMDetailsViewModel.ts" />
+    <None Remove="ClientApp\src\app\model\AcquiredVMSpecification.ts" />
+    <None Remove="ClientApp\src\app\model\capexdetail.ts" />
+    <None Remove="ClientApp\src\app\model\CapexEnvironment.ts" />
+    <None Remove="ClientApp\src\app\model\CapexViewModel.ts" />
+    <None Remove="ClientApp\src\app\model\costBO.ts" />
+    <None Remove="ClientApp\src\app\model\CustomResponseMessage.ts" />
+    <None Remove="ClientApp\src\app\model\email.model.ts" />
+    <None Remove="ClientApp\src\app\model\opexViewModel .ts" />
+    <None Remove="ClientApp\src\app\model\project.model.ts" />
+    <None Remove="ClientApp\src\app\model\vmapprovalrejection.model.ts" />
+    <None Remove="ClientApp\src\app\model\vmApprovalViewModel.ts" />
+    <None Remove="ClientApp\src\app\model\vmcpu.model.ts" />
+    <None Remove="ClientApp\src\app\model\vmdocument.model.ts" />
+    <None Remove="ClientApp\src\app\model\vmenvironment.model.ts" />
+    <None Remove="ClientApp\src\app\model\vmMonitoringType.model.ts" />
+    <None Remove="ClientApp\src\app\model\vmos.model.ts" />
+    <None Remove="ClientApp\src\app\model\vmram.model.ts" />
+    <None Remove="ClientApp\src\app\model\vmRequestViewModel.ts" />
+    <None Remove="ClientApp\src\app\model\vmrequistiondetail.model.ts" />
+    <None Remove="ClientApp\src\app\model\vmstorage.model.ts" />
+    <None Remove="ClientApp\src\app\model\workflow.model.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\alert\AlertType.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\helper\HelperConstant.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\AcquiredVMDetailsViewModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\AcquiredVMSpecification.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\capexdetail.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\CapexEnvironment.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\CapexViewModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\costBO.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\CustomResponseMessage.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\email.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\opexViewModel .ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmapprovalrejection.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\project.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmApprovalViewModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmcpu.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmdocument.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmenvironment.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmMonitoringType.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmos.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmram.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmRequestViewModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmrequistiondetail.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\vmstorage.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\workflow.model.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\fetch-data\workflow\" />
+    <Folder Include="Pdf\" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>

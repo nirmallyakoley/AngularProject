@@ -1,0 +1,42 @@
+<div>
+  <a style="cursor: pointer"  class="nav-link text-dark" [routerLink]="['/vmrequest']"><img src="assets/images/addVM.jpg" height="50px" width="50px" />&nbsp;<u><b>Request New VM</b></u></a>
+</div>
+<div *ngIf="vmprojects!= null && vmprojects.length>0">
+  <h1>My Vm Requests</h1>
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="vmprojects">
+    <thead>
+      <tr>
+        <th>Request Number</th>
+        <th>Project Name</th>
+        <th>Quote ID</th>
+        <th>Requested By</th>
+        <th>Project Number </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vmproject of vmprojects">
+        <td>{{'REQ'+vmproject.requestId }}</td>
+        <td>{{ vmproject.projectName }}</td>
+        <td>{{ vmproject.quoteIdnumber }}</td>
+        <td>{{ vmproject.requesterName }}</td>
+        <td>{{ vmproject.projectNumber }}</td>
+        <td>
+          <a [routerLink]="['/workflow',vmproject.requestId]" routerLinkActive="active">Workflow</a>
+          &nbsp;
+          <a [routerLink]="['/show-vmdetails',vmproject.requestId]" routerLinkActive="active">View details</a>
+          &nbsp;
+          <a [routerLink]="['/cost',vmproject.requestId]" routerLinkActive="active">View Cost</a>
+          &nbsp;
+          <span *ngIf="vmproject?.approverL3==true">
+            <a [routerLink]="['/upload-file',vmproject.requestId]" routerLinkActive="active">Upload files</a>
+            &nbsp;
+          </span>
+          <span *ngIf="vmproject?.approverL1==false">
+            <button class="btn btn-primary" (click)="deleteVMRequest(vmproject.requestId)">Delete</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

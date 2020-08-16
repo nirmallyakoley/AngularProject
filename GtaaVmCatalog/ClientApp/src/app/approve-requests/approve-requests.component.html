@@ -1,0 +1,110 @@
+
+<div *ngIf="vmprojects?.length>0  && approverLevel==='PDM' ">
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr class="w3-hoverable">
+        <th>Request Number</th>
+        <th>Project Name</th>
+        <th>Quote ID</th>
+        <th>Requested By</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vmproject of vmprojects;let i = index;">
+        <td>{{'REQ'+vmproject.requestId }}</td>
+        <td>{{ vmproject.projectName }}</td>
+        <td>{{ vmproject.quoteIdnumber }}</td>
+        <td>{{ vmproject.requesterName }}</td>
+        <td>
+          <div>
+            <a [routerLink]="['/show-vmdetails',vmproject.requestId]" routerLinkActive="active">View details</a>
+            &nbsp;
+            <a [routerLink]="['/cost',vmproject.requestId]" routerLinkActive="active">View Cost</a>&nbsp;
+            <a [routerLink]="['/workflow',vmproject.requestId]" routerLinkActive="active">Workflow</a>&nbsp;
+            <button class="btn btn-primary" (click)="approveRequest(i,approverLevel)">Approve</button>&nbsp;
+            <button class="btn btn-primary" (click)="rejectRequest(i,approverLevel)">Reject</button>&nbsp;
+            
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div *ngIf="vmprojects?.length>0  && approverLevel==='TAP'">
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr class="w3-hoverable">
+        <th>Request Number</th>
+        <th>Project Name</th>
+        <th>Quote ID</th>
+        <th>Requested By</th>
+        <th>Approval status(PDM)</th>
+        <th>Approve/Reject</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vmproject of vmprojects;let i = index;">
+        <td>{{'REQ'+vmproject.requestId }}</td>
+        <td>{{ vmproject.projectName }}</td>
+        <td>{{ vmproject.quoteIdnumber }}</td>
+        <td>{{ vmproject.requesterName }}</td>
+        <td>{{'Approved'}}</td>
+        <td>
+          <div>
+            <a [routerLink]="['/show-vmdetails',vmproject.requestId]" routerLinkActive="active">View details</a>
+            &nbsp;
+            <a [routerLink]="['/cost',vmproject.requestId]" routerLinkActive="active">View Cost</a>&nbsp;
+            <a [routerLink]="['/workflow',vmproject.requestId]" routerLinkActive="active">Workflow</a>&nbsp;
+            <button class="btn btn-primary" (click)="approveRequest(i,approverLevel)">Approve</button>&nbsp;
+            <button class="btn btn-primary" (click)="rejectRequest(i,approverLevel)">Reject</button>&nbsp;
+           
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div *ngIf="vmprojects?.length>0  && approverLevel==='Director'">
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr class="w3-hoverable">
+        <th>Request Number</th>
+        <th>Project Name</th>
+        <th>Quote ID</th>
+        <th>Requested By</th>
+        <th>Approval status(TAP)</th>
+        <th>Approve/Reject</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vmproject of vmprojects;let i = index;">
+        <td>{{'REQ'+vmproject.requestId }}</td>
+        <td>{{ vmproject.projectName }}</td>
+        <td>{{ vmproject.quoteIdnumber }}</td>
+        <td>{{ vmproject.requesterName }}</td>
+        <td>{{'Approved'}}</td>
+        <td>
+          <div>
+            <a [routerLink]="['/show-vmdetails',vmproject.requestId]" routerLinkActive="active">View details</a>
+            &nbsp;
+            <a [routerLink]="['/cost',vmproject.requestId]" routerLinkActive="active">View Cost</a>&nbsp;
+            <a [routerLink]="['/workflow',vmproject.requestId]" routerLinkActive="active">Workflow</a>&nbsp;
+            <button class="btn btn-primary" (click)="approveRequest(i,approverLevel)">Approve</button>&nbsp;
+            <button class="btn btn-primary" (click)="rejectRequest(i,approverLevel)">Reject</button>&nbsp;
+          
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="vmprojects?.length==0"><em>There are no requests pending for your approval</em>
+  </div>

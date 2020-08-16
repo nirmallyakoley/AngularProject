@@ -1,0 +1,34 @@
+<div>
+  <h4><u>Request Number : REQ{{vmRequestId}}</u></h4>
+  <br />
+  <div id="capexCost">
+    <div *ngIf="objCapexVieModelArray;else loadingCapex">
+      <h6><u>CAPEX Cost </u></h6>
+      <div *ngFor="let objCapexViewModel of objCapexVieModelArray;let x = index">
+        <div>
+          <span><u><label>{{x+1}}.</label>&nbsp;{{objCapexViewModel.vmCategory}}</u></span>
+          <br />
+          <app-capex-calc [CapexList]="objCapexViewModel.CapexList"></app-capex-calc>
+        </div>
+      </div>
+    </div>
+    <ng-template #loadingCapex>
+      <p> <em>Loading...</em></p>
+    </ng-template>
+  </div>
+  <br />
+  <div id="opexCost">
+    <div *ngIf="objOpexViewModel;else loading">
+      <h6><u>OPEX Cost - Number of VM(s) : {{objOpexViewModel.VmNumber}}</u></h6>
+      <div *ngFor="let year of objOpexViewModel.YearList">
+        <label> Year : <b>{{year}}</b></label>
+        <app-opex-year [year]="year" [opexData]="objOpexViewModel.OpexCostCollection"></app-opex-year>
+      </div>
+    </div>
+    <ng-template #loading>
+      <p> <em>Loading...</em></p>
+    </ng-template>
+  </div>
+  <br />
+  <a style="cursor: pointer" class="nav-link text-dark" (click)="navigateBack()"><< Back</a>
+</div>

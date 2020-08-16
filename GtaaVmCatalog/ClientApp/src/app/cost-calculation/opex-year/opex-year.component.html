@@ -1,0 +1,9 @@
+<div>
+  <table border="1">
+    <tr *ngFor="let objCostBo of yearWiseOpexData;let i = index;">
+      <td>{{i+1}}</td><td>{{objCostBo.CostType}}</td><td>&nbsp;{{objCostBo.CostAmount}}</td>
+    </tr>
+    <tr><td>&nbsp;</td><td>Total Cost</td><td><b>{{yearWiseOpexCost}}</b></td></tr>
+  </table>
+  <br />
+</div>

@@ -1,0 +1,303 @@
+<div class="container">
+  <div [hidden]="submitted" >
+    <!--<p *ngIf="objMessageResponse.message!=null">     
+      <ngb-alert [type]="objMessageResponse.message" (close)="close()">Successfully VM requested</ngb-alert>
+    </p>-->
+    <h1>GTAA - Virtual Machine Catalog</h1>
+    <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm"  >
+      <ngb-accordion  activeIds="pnlProjectDetails"  closeOthers="true" type="'success'"  #myaccordion="ngbAccordion">
+        <ngb-panel title="Request VM" id="pnlProjectDetails">
+          <ng-template ngbPanelContent>
+            <div class="div-backgroundcolor">
+              <table  class="table-vmRequest">
+                <tr class="tr-style">
+                  <td class="td-Cell"><b>Project Name</b></td>
+                  <td class="td-Cell">
+                    <input type="text" class="form-control" id="projectname"
+                           [(ngModel)]="objvmRequestViewModel.TblVmproject.projectName"
+                           [ngModelOptions]="{standalone: true}">
+                  </td>
+                  <td class="td-blankCell">&nbsp;&nbsp;</td>
+                  <td class="td-Cell"><b>Quote ID</b></td>
+                  <td class="td-Cell">
+                    <input type="text" value="{{quoteId}}" readonly="readonly" class="form-control" id="quoteIdnumber"
+                           [(ngModel)]="objvmRequestViewModel.TblVmproject.quoteIdnumber"
+                           [ngModelOptions]="{standalone: true}" >
+                  </td>
+                </tr>
+                <tr class="tr-style">
+                  <td class="td-Cell"><b>Project Number</b></td>
+                  <td class="td-Cell">
+                    <input type="text" class="form-control" id="projectNumber"
+                           [ngModelOptions]="{standalone: true}"
+                           [(ngModel)]="objvmRequestViewModel.TblVmproject.projectNumber">
+                  </td>
+                  <td class="td-blankCell">&nbsp;&nbsp;</td>
+                  <td class="td-Cell"><b>Change Order Number</b></td>
+                  <td class="td-Cell">
+                    <input type="text" class="form-control" id="changeOrderNumber"
+                           [(ngModel)]="objvmRequestViewModel.TblVmproject.changeOrderNumber"
+                           [ngModelOptions]="{standalone: true}">
+                  </td>
+                </tr>
+                <tr class="tr-style">
+                  <td class="td-Cell"><b>Requester Name</b></td>
+                  <td class="td-Cell">
+                    <input type="text" class="form-control" id="requesterName"
+                           [ngModelOptions]="{standalone: true}"
+                           [(ngModel)]="objvmRequestViewModel.TblVmproject.requesterName">
+                  </td>
+                  <td class="td-blankCell">&nbsp;&nbsp;</td>
+                  <td class="td-Cell"><b>Agreement Number</b></td>
+                  <td class="td-Cell">
+                    <input type="text" class="form-control" id="agreementNumber"
+                           [(ngModel)]="objvmRequestViewModel.TblVmproject.agreementNumber"
+                           [ngModelOptions]="{standalone: true}">
+                  </td>
+                </tr>
+                <tr class="tr-style">
+                  <td class="td-Cell"><b>Architect Name</b></td>
+                  <td class="td-Cell">
+                    <input type="text" class="form-control" id="architectName"
+                           [ngModelOptions]="{standalone: true}"
+                           [(ngModel)]="objvmRequestViewModel.TblVmproject.architectName">
+                  </td>
+                  <td class="td-blankCell">&nbsp;&nbsp;</td>
+                  <td class="td-Cell"><b>Release Number</b></td>
+                  <td class="td-Cell">
+                    <input type="text" class="form-control" id="releaseNumber"
+                           [(ngModel)]="objvmRequestViewModel.TblVmproject.releaseNumber"
+                           [ngModelOptions]="{standalone: true}">
+                  </td>
+                </tr>
+                <tr class="tr-style">
+                  <td class="td-Cell"><b>PDM Name</b></td>
+                  <td class="td-Cell">
+                    <input type="text" class="form-control" id="pdmname"
+                           [ngModelOptions]="{standalone: true}"
+                           [(ngModel)]="objvmRequestViewModel.TblVmproject.pdmname">
+                  </td>
+                  <td class="td-blankCell">&nbsp;&nbsp;</td>
+                  <td class="td-Cell"><b>Change Request Number</b></td>
+                  <td class="td-Cell">
+                    <input type="text" class="form-control" id="changeRequestNumber"
+                           [(ngModel)]="objvmRequestViewModel.TblVmproject.changeRequestNumber"
+                           [ngModelOptions]="{standalone: true}">
+                  </td>
+                </tr>
+              </table>
+              <br />
+                <div class="form-group">
+                  <label for="briefDescription" class="td-Cell"><b>Description</b></label>
+                  <textarea rows="3" cols="30" class="form-control" id="briefDescription"
+                         [(ngModel)]="objvmRequestViewModel.TblVmproject.briefDescription"
+                         [ngModelOptions]="{standalone: true}">
+                  </textarea>
+                </div>
+   
+                <table   class="table-vmRequest">
+                  <tr class="tr-style">
+                    <td class="td-Cell"><b>VM Type</b></td>
+                    <td class="td-Cell">
+                      <select [(ngModel)]="objvmRequestViewModel.TblVmproject.vmType" [ngModelOptions]="{standalone: true}" class="form-control">
+                        <option value="Standalone(MCR1)">Standalone(MCR1)</option>
+                        <option value="Standalone(MCR2)">Standalone(MCR2)</option>
+                        <option value="Cluster(MCR1 & MCR2)">Cluster(MCR1 & MCR2)</option>
+                      </select>
+                    </td>
+                    <td class="td-blankCell">&nbsp;&nbsp;</td>
+                    <td class="td-Cell"><b>Application Criticality</b></td>
+                    <td class="td-Cell">
+                      <select [(ngModel)]="objvmRequestViewModel.TblVmproject.applicationCriticality" [ngModelOptions]="{standalone: true}" class="form-control">
+                        <option value="Business Critical">Business Critical</option>
+                        <option value="Operational Critical">Operational Critical</option>
+                        <option value="Non Critical">Non Critical</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr class="tr-style">
+                    <td class="td-Cell"><b>SIEM Required</b></td>
+                    <td class="td-Cell">
+                      <select [(ngModel)]="objvmRequestViewModel.TblVmproject.siem" [ngModelOptions]="{standalone: true}" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td class="td-blankCell">&nbsp;&nbsp;</td>
+                    <td class="td-Cell"><b>Growth Factor</b></td>
+                    <td class="td-Cell">
+                      <select [(ngModel)]="objvmRequestViewModel.TblVmproject.growthFactor" [ngModelOptions]="{standalone: true}" class="form-control">
+                        <option value="Yes-Capacity to be covered till Nov 2023">Yes-Capacity to be covered till Nov 2023</option>
+                        <option value="Not Applicable">Not Applicable</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr class="tr-style">
+                    <td class="td-Cell"><b>Any other criteria?</b></td>
+                    <td class="td-Cell">
+                      <input type="text" class="form-control" id="otherCriteria"
+                             [(ngModel)]="objvmRequestViewModel.TblVmproject.otherCriteria"
+                             [ngModelOptions]="{standalone: true}">
+                    </td>
+                  </tr>
+                </table>
+            </div>
+         
+            
+           
+            <div class="div-backgroundcolor">
+              <br />
+              <span class="td-Cell"><b><u>Upload Documents:</u></b></span>
+              <br />
+              <table  class="table-uploadvmRequest">
+                <tr class="tr-style">
+                  <td class="td-Cell"><b>TAP Approvals</b></td>
+                  <td class="td-Cell">
+                 
+                    <select [(ngModel)]="objvmRequestViewModel.TblVmproject.tapApprovalDoc" [ngModelOptions]="{standalone: true}" class="form-control">
+                      <option value="Yes">Yes</option>
+                      <option value="Not Applicable">Not Applicable</option>
+                      <option value="Exception">Exception</option>
+                    </select>
+                 
+                  <div *ngIf="objvmRequestViewModel.TblVmproject.tapApprovalDoc=='Yes'">
+                    <input  type="file"
+                           id="file"
+                           (change)="uploadFile($event.target.files,'TapDoc')"/>
+                  </div>
+                    </td>
+
+                  <td class="td-blankCell">&nbsp;&nbsp;</td>
+                  <td class="td-Cell"><b>Solution Design</b></td>
+                  
+                  <td class="td-Cell">
+                    <select [(ngModel)]="objvmRequestViewModel.TblVmproject.solutionDesignDoc" [ngModelOptions]="{standalone: true}" class="form-control">
+                      <option value="Yes">Yes</option>
+                      <option value="Not Applicable">Not Applicable</option>
+                      <option value="Exception">Exception</option>
+                    </select>
+                
+                  <div *ngIf="objvmRequestViewModel.TblVmproject.solutionDesignDoc=='Yes'">
+                    <input type="file"
+                           id="file"
+                           (change)="uploadFile($event.target.files,'SolDesignDoc')"/>
+                  </div>
+                  </td>
+                </tr>
+                <tr class="tr-style">
+                  <td class="td-Cell" ><b>Security Approvals</b></td>
+                 
+                  <td >
+                    <select [(ngModel)]="objvmRequestViewModel.TblVmproject.securityApprovalDoc" [ngModelOptions]="{standalone: true}" class="form-control">
+                      <option value="Yes">Yes</option>
+                      <option value="Not Applicable">Not Applicable</option>
+                      <option value="Exception">Exception</option>
+                    </select>
+                 
+                  <div *ngIf="objvmRequestViewModel.TblVmproject.securityApprovalDoc=='Yes'">
+                    <input type="file"
+                           id="file"
+                           (change)="uploadFile($event.target.files,'SecurityDoc')">
+                  </div>
+                    </td>
+                  <td class="td-blankCell">&nbsp;&nbsp;</td>
+                  <td class="td-Cell"><b>Build Sheet</b></td>
+                  <td >                  
+                    <select [(ngModel)]="objvmRequestViewModel.TblVmproject.buildSheetDoc" [ngModelOptions]="{standalone: true}" class="form-control">
+                      <option value="Yes">Yes</option>
+                      <option value="Not Applicable">Not Applicable</option>
+                      <option value="Exception">Exception</option>
+                    </select>                  
+                  <div *ngIf="objvmRequestViewModel.TblVmproject.buildSheetDoc=='Yes'">
+                    <input type="file"
+                           id="file"
+                           (change)="uploadFile($event.target.files,'BuildSheetDoc')">
+                  </div>
+                    </td>
+                    </tr>
+
+              </table>
+              <div>&nbsp;</div>
+
+
+            </div>
+        
+            <div id="vmrequisitiondetail" >
+              <input type="button" (click)="newRow();" value="Add row" />
+              <table *ngIf="objvmRequestViewModel.TblVmRequisitionDetailsList" class='table table-striped' aria-labelledby="tableLabel">
+                <thead>
+                  <tr>
+                    <th>VM Environment</th>
+                    <th>OS</th>
+                    <th>CPU</th>
+                    <th>RAM</th>
+                    <th>Storage</th>
+                    <th>Monitoring</th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let objvmrequsition of objvmRequestViewModel.TblVmRequisitionDetailsList;let i = index;">
+                    <td>
+                      <select [(ngModel)]="objvmrequsition.vmenvironmentTypeId" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let objVMEnvironment of objVMEnvironmentList" value={{objVMEnvironment.vmenvironmentTypeId}}>
+                          {{objVMEnvironment.vmenvironment}}
+                        </option>
+                      </select>
+                    </td>
+                    <td>
+                      <select [(ngModel)]="objvmrequsition.vmostypeId" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let objVMOs of objVMOsArray" value={{objVMOs.vmostypeId}}>
+                          {{objVMOs.vmos}}
+                        </option>
+                      </select>
+                    </td>
+                    <td>
+                      <select [(ngModel)]="objvmrequsition.vmcpuid" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let objCpu of objVMCpuArray" value={{objCpu.vmcpuid}}>
+                          {{objCpu.vmcputype}}
+                        </option>
+                      </select>
+
+                      </td>
+                      <td>
+                        <select [(ngModel)]="objvmrequsition.vmramid" [ngModelOptions]="{standalone: true}">
+                          <option *ngFor="let objRam of objVMRamArray" value={{objRam.vmramid}}>
+                            {{objRam.vmramtype}}
+                          </option>
+                        </select>
+                      </td>
+                      <td>
+                        <select [(ngModel)]="objvmrequsition.vmstorid" [ngModelOptions]="{standalone: true}">
+                          <option *ngFor="let objStorerage of objVMStorageArray" value={{objStorerage.vmstorid}}>
+                            {{objStorerage.vmstorageType}}
+                          </option>
+                        </select>
+                      </td>
+                      <td>
+                        <select [(ngModel)]="objvmrequsition.vmmonitoringId" [ngModelOptions]="{standalone: true}">
+                          <option *ngFor="let objVmMonitoring of objVmMonitoringTypeArray" value={{objVmMonitoring.vmmonitoringId}}>
+                            {{objVmMonitoring.vmmonitoringType}}
+                          </option>
+                        </select>
+                      </td>
+                      <td><span *ngIf="i!=0"><button (click)="deleteRow(i);">Delete Row</button></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+        <div>
+          <button type="submit" class="btn btn-success">Submit</button>
+          &nbsp;
+          <input type="button" class="btn btn-success" value="Close" (click)="close()" />
+        </div>
+    </form>
+  </div>
+
+ 
+</div>

@@ -1,0 +1,27 @@
+<div id="capexdiv">
+  <table border="1">
+    <tr>
+      <th>SL.No.</th>
+      <th>Type</th>
+      <th>Unit</th>
+      <th>Per Unit Cost</th>
+      <th>Estimate</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let objCapexEnvironment of CapexList;let i = index;">
+        <td>{{i+1}}</td>
+        <td>{{objCapexEnvironment.CapexType}}</td>
+        <td>{{objCapexEnvironment.CapexUnit}}</td>
+        <td>{{objCapexEnvironment.CapexPerUnitCost}}</td>
+        <td>&nbsp;{{objCapexEnvironment.CapexCost}}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="3">Total Cost</td>
+        <td><b>{{capexCost}}</b></td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+</div>
+

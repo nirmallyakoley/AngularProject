@@ -1,0 +1,154 @@
+
+    <h4>My Request: REQ{{requestId}}</h4>
+    <div style="border:solid 1px #000000">
+      <div class="div-backgroundcolor">
+        <table class="table-vmRequest">
+          <tr class="tr-style">
+            <td class="td-Cell"><b>Project Name</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.projectName}}</td>
+            <td class="td-blankCell">&nbsp;&nbsp;</td>
+            <td class="td-Cell"><b>Quote ID</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.quoteIdnumber}}</td>
+          </tr>
+          <tr class="tr-style">
+            <td class="td-Cell"><b>Project Number</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.projectNumber}}</td>
+            <td class="td-Cell">&nbsp;&nbsp;</td>
+            <td class="td-Cell"><b>Change Order Number</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.changeRequestNumber}}</td>
+          </tr>
+          <tr class="tr-style">
+            <td class="td-Cell"><b>Requester Name</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.requesterUserId}}</td>
+            <td class="td-Cell td-blankCell">&nbsp;&nbsp;</td>
+            <td class="td-Cell"><b>Agreement Number</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.agreementNumber}}</td>
+          </tr>
+          <tr class="tr-style">
+            <td class="td-Cell"><b>Architect Name</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.architectName}}</td>
+            <td class="td-Cell">&nbsp;&nbsp;</td>
+            <td class="td-Cell"><b>Release Number</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.releaseNumber}}</td>
+          </tr>
+          <tr class="tr-style">
+            <td class="td-Cell"><b>PDM Name</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.pdmname}}</td>
+            <td class="td-Cell">&nbsp;&nbsp;</td>
+            <td class="td-Cell"><b>Change Request Number</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.changeRequestNumber}}</td>
+          </tr>
+        </table>
+        <br />
+        <div class="form-group">
+          <label for="briefDescription" class="td-Cell"><b>Description</b></label>
+          <span class="form-control description" id="briefDescription">
+            {{objAcquiredVMDetailsViewModel.tblVmproject.briefDescription}}
+          </span>
+        </div>
+
+        <table class="table-vmRequest">
+          <tr class="tr-style">
+            <td class="td-Cell"><b>VM Type</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.vmType}}</td>
+            <td class="td-Cell td-blankCell">&nbsp;&nbsp;</td>
+            <td class="td-Cell"><b>Application Criticality</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.applicationCriticality}}</td>
+          </tr>
+          <tr class="tr-style">
+            <td class="td-Cell"><b>SIEM Required</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.siem}}</td>
+            <td class="td-Cell">&nbsp;&nbsp;</td>
+            <td class="td-Cell"><b>Growth Factor</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.growthFactor}}</td>
+          </tr>
+          <tr class="tr-style">
+            <td class="td-Cell"><b>Any other criteria?</b></td>
+            <td class="td-Cell">{{objAcquiredVMDetailsViewModel.tblVmproject.otherCriteria}}</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+
+      
+      <div class="div-backgroundcolor">
+        <br />
+        <span class="td-Cell"><b><u>Upload Documents:</u></b></span>
+        <table class="table-uploadvmRequest">
+          <tr class="tr-style">
+            <td class="td-CellUploadDoc"><b>TAP Approvals</b></td>
+            <td class="td-Cell">
+              {{objAcquiredVMDetailsViewModel.tblVmproject.tapApprovalDoc}}
+              <div *ngIf="objAcquiredVMDetailsViewModel.tblVmproject.tapApprovalDoc=='Yes'">
+                <a href="{{objAcquiredVMDetailsViewModel.tblVmproject.tapApprovalDocUrl}}" target="_blank">Download</a>
+              </div>
+            </td>
+
+            <td class="td-blankCell">&nbsp;&nbsp;</td>
+            <td class="td-CellUploadDoc"><b>Solution Design</b></td>
+
+            <td class="td-Cell">
+              {{objAcquiredVMDetailsViewModel.tblVmproject.solutionDesignDoc}}
+              <div *ngIf="objAcquiredVMDetailsViewModel.tblVmproject.solutionDesignDoc=='Yes'">
+                <a href="{{objAcquiredVMDetailsViewModel.tblVmproject.solutionDesignDocUrl}}" target="_blank">Download</a>
+              </div>
+            </td>
+          </tr>
+          <tr class="tr-style">
+            <td class="td-CellUploadDoc"><b>Security Approvals</b></td>
+
+            <td>
+              {{objAcquiredVMDetailsViewModel.tblVmproject.securityApprovalDoc}}
+              <div *ngIf="objAcquiredVMDetailsViewModel.tblVmproject.securityApprovalDoc=='Yes'">
+                <a href="{{objAcquiredVMDetailsViewModel.tblVmproject.securityApprovalDocUrl}}" target="_blank">Download</a>
+              </div>
+            </td>
+            <td class="td-blankCell">&nbsp;&nbsp;</td>
+            <td class="td-CellUploadDoc"><b>Build Sheet</b></td>
+            <td>
+              {{objAcquiredVMDetailsViewModel.tblVmproject.buildSheetDoc}}
+              <div *ngIf="objAcquiredVMDetailsViewModel.tblVmproject.buildSheetDoc=='Yes'">
+                <a href="{{objAcquiredVMDetailsViewModel.tblVmproject.buildSheetDocUrl}}" target="_blank">Download</a>
+              </div>
+            </td>
+          </tr>
+
+        </table>
+        <div>&nbsp;</div>
+
+        <div id="vmrequisitiondetail">
+          <table class='table table-striped' aria-labelledby="tableLabel">
+
+            <thead>
+              <tr>
+                <th>VM Environment</th>
+                <th>OS</th>
+                <th>CPU</th>
+                <th>RAM</th>
+                <th>Storage</th>
+                <th>Monitoring</th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of objAcquiredVMDetailsViewModel.aquiredVmSpecification">
+                <td>{{data.vmEnvironment}}</td>
+                <td>{{data.vmOs}}</td>
+                <td>{{data.vmCpuType}}</td>
+                <td>{{data.vmRamType}}</td>
+                <td>{{data.vmStorageType}}</td>
+                <td>{{data.vmMonitoringType}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+      <div>
+        <input type="button" class="btn btn-success" value="Close" (click)="close()" />
+      </div>
+
+
+

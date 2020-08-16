@@ -1,0 +1,15 @@
+<div>
+  <h4>Request number : REQ{{workflowData.requestId}}</h4>
+  <br />
+  <table class="table table-striped" border="1">
+   
+    <tr *ngFor="let tblVmapprovalRejection of objtblVmapprovalRejection">
+      <td>Approval Status - ( <b>{{tblVmapprovalRejection.ApprovalLevel}}</b>) &nbsp;<b>{{tblVmapprovalRejection.Status}}</b> </td>
+      <td>Approver: <b>{{tblVmapprovalRejection.ApprovedOrRejectedBy}}</b></td>
+      <td>Approved/Rejected On: <b>{{tblVmapprovalRejection.Status == 'Pending'?"N/A":tblVmapprovalRejection.ApprovedOrRejectedOn | date:'medium'}}</b></td>
+    </tr>
+   
+  </table> 
+  <a style="cursor: pointer" class="nav-link text-dark" (click)="navigateBack()"><< Back</a>
+</div>
+

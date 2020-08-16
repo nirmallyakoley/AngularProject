@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.tr-style {
+ height:50px;
+ min-height:50px
+}
+.td-Cell {
+  padding-left:2px;
+  font-family:Verdana;
+  font-size:12pt
+}
+
+.td-blankCell {
+ width:25px;
+}
+
+
+.table-vmRequest {
+  width:1000px;  
+ 
+}
+.table-uploadvmRequest {
+  width: 1020px;
+}
+
+.td-CellUploadDoc {
+  padding-left: 2px;
+  font-family: Verdana;
+  font-size: 12pt;
+  width:150px;
+}
+.td-CellUploadSelect { 
+  font-family: Verdana;
+  font-size: 12pt;
+  width: 140px;
+}
+.div-backgroundcolor {
+  background-color: khaki;
+  margin-bottom:7px;
+}
+
+.description {
+height:100px;
+overflow-y:auto;
+background-color:azure;
+
+}
+
+
+
